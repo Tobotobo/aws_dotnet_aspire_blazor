@@ -1,0 +1,29 @@
+{
+    "files.eol": "\n",
+    "extensions.ignoreRecommendations": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "markdown.copyFiles.destination": {
+        "**": "${documentWorkspaceFolder}/docs/images/${unixTime}.${fileExtName}"
+    },
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "aws.telemetry": false,
+    "aws.suppressPrompts": {
+        "apprunnerNotifyPricing": false,
+        "apprunnerNotifyPause": false,
+        "ecsRunCommand": false,
+        "ecsRunCommandEnable": false,
+        "ecsRunCommandDisable": false,
+        "regionAddAutomatically": false,
+        "yamlExtPrompt": true,
+        "fileViewerEdit": false,
+        "createCredentialsProfile": false,
+        "samcliConfirmDevStack": false,
+        "remoteConnected": false,
+        "codeCatalystConnectionExpired": false,
+        "minIdeVersion": false,
+        "ssoCacheError": false
+    },
+    // "dotnet.server.useOmnisharp": true
+}

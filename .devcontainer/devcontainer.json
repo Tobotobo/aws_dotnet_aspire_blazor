@@ -1,0 +1,34 @@
+{
+  "name": "AWS .NET 開発コンテナ",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}", // ローカルのワークスペースフォルダを指定
+    "SAM_CLI_TELEMETRY": "0",
+    "DOTNET_CLI_TELEMETRY_OPTOUT": "1"
+  },
+  "mounts": [], // Volumeマウントの設定
+  "features": { // コンテナに追加したい機能の設定
+    // Available Dev Container Features
+    // https://containers.dev/features
+    "ghcr.io/devcontainers/features/git:1": {}, // Git
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}, // Docker
+    "ghcr.io/devcontainers/features/aws-cli:1": {}, // AWS CLI
+    "ghcr.io/customink/codespaces-features/sam-cli:1": {}, // AWS SAM
+    "ghcr.io/devcontainers/features/node:1": "22", // Node.js v22 ※AWS CDK に必要
+    "ghcr.io/devcontainers/features/dotnet:2": "8.0.407" // .NET 8 SDK
+  },
+  "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+  "customizations": { // コンテナ内のVSCodeに適用するエディタなどの設定
+    "vscode": {
+      "settings": {
+        // 特段の理由が無ければ .vscode/settings.json に記述
+      },
+      "extensions": [
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-dotnettools.csharp",
+        "hediet.vscode-drawio"
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.1.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>bc1311fb-cf5c-413a-81d6-02d34ed76b12</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.AWS" Version="9.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireAWSExample.Web\AspireAWSExample.Web.csproj" />
+    <ProjectReference Include="..\AspireAWSExample.CounterLambdaFunction\src\AspireAWSExample.CounterLambdaFunction\AspireAWSExample.CounterLambdaFunction.csproj" />
+    <ProjectReference Include="..\AspireAWSExample.WeatherForecastLambdaFunction\src\AspireAWSExample.WeatherForecastLambdaFunction\AspireAWSExample.WeatherForecastLambdaFunction.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.Web", "AspireAWSExample.Web\AspireAWSExample.Web.csproj", "{013F4881-70CC-4810-9768-758F12A0720D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.AppHost", "AspireAWSExample.AppHost\AspireAWSExample.AppHost.csproj", "{2C6AB70F-866F-4132-8E2F-22957A8E10C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspireAWSExample.CounterLambdaFunction", "AspireAWSExample.CounterLambdaFunction", "{36600A6D-7EC7-4F97-A96A-E71DF8D0C195}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{51125DC9-21B6-4449-AF90-531DE95843D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.CounterLambdaFunction", "AspireAWSExample.CounterLambdaFunction\src\AspireAWSExample.CounterLambdaFunction\AspireAWSExample.CounterLambdaFunction.csproj", "{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0342EFEE-BA3F-40BF-B26D-8B374AAD864A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.CounterLambdaFunction.Tests", "AspireAWSExample.CounterLambdaFunction\test\AspireAWSExample.CounterLambdaFunction.Tests\AspireAWSExample.CounterLambdaFunction.Tests.csproj", "{2DE6DEDB-C27F-4469-A6AB-DA7193E93096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.Shared", "AspireAWSExample.Shared\AspireAWSExample.Shared.csproj", "{A564597D-2951-4DFE-9DFD-6E39EC685F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.Services", "AspireAWSExample.Services\AspireAWSExample.Services.csproj", "{B68A4DD7-C544-4A98-8FBC-07D50A0E83A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspireAWSExample.WeatherForecastLambdaFunction", "AspireAWSExample.WeatherForecastLambdaFunction", "{78DD0182-3642-461C-B28B-17C2611897F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{99DF9912-A0DB-4414-9130-832F5AD3E7F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.WeatherForecastLambdaFunction", "AspireAWSExample.WeatherForecastLambdaFunction\src\AspireAWSExample.WeatherForecastLambdaFunction\AspireAWSExample.WeatherForecastLambdaFunction.csproj", "{976981DB-BCE3-4132-8EF0-CD8D183878A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5B247426-2F5D-4A0E-9A5F-AFE7012B868E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAWSExample.WeatherForecastLambdaFunction.Tests", "AspireAWSExample.WeatherForecastLambdaFunction\test\AspireAWSExample.WeatherForecastLambdaFunction.Tests\AspireAWSExample.WeatherForecastLambdaFunction.Tests.csproj", "{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{013F4881-70CC-4810-9768-758F12A0720D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{013F4881-70CC-4810-9768-758F12A0720D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{013F4881-70CC-4810-9768-758F12A0720D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{013F4881-70CC-4810-9768-758F12A0720D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6AB70F-866F-4132-8E2F-22957A8E10C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6AB70F-866F-4132-8E2F-22957A8E10C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6AB70F-866F-4132-8E2F-22957A8E10C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6AB70F-866F-4132-8E2F-22957A8E10C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE6DEDB-C27F-4469-A6AB-DA7193E93096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE6DEDB-C27F-4469-A6AB-DA7193E93096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE6DEDB-C27F-4469-A6AB-DA7193E93096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE6DEDB-C27F-4469-A6AB-DA7193E93096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A564597D-2951-4DFE-9DFD-6E39EC685F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A564597D-2951-4DFE-9DFD-6E39EC685F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A564597D-2951-4DFE-9DFD-6E39EC685F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A564597D-2951-4DFE-9DFD-6E39EC685F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68A4DD7-C544-4A98-8FBC-07D50A0E83A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B68A4DD7-C544-4A98-8FBC-07D50A0E83A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B68A4DD7-C544-4A98-8FBC-07D50A0E83A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B68A4DD7-C544-4A98-8FBC-07D50A0E83A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976981DB-BCE3-4132-8EF0-CD8D183878A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976981DB-BCE3-4132-8EF0-CD8D183878A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976981DB-BCE3-4132-8EF0-CD8D183878A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976981DB-BCE3-4132-8EF0-CD8D183878A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51125DC9-21B6-4449-AF90-531DE95843D1} = {36600A6D-7EC7-4F97-A96A-E71DF8D0C195}
+		{3AED39FC-3B55-4A2B-A3DD-6CB174C377E1} = {51125DC9-21B6-4449-AF90-531DE95843D1}
+		{0342EFEE-BA3F-40BF-B26D-8B374AAD864A} = {36600A6D-7EC7-4F97-A96A-E71DF8D0C195}
+		{2DE6DEDB-C27F-4469-A6AB-DA7193E93096} = {0342EFEE-BA3F-40BF-B26D-8B374AAD864A}
+		{99DF9912-A0DB-4414-9130-832F5AD3E7F1} = {78DD0182-3642-461C-B28B-17C2611897F4}
+		{976981DB-BCE3-4132-8EF0-CD8D183878A2} = {99DF9912-A0DB-4414-9130-832F5AD3E7F1}
+		{5B247426-2F5D-4A0E-9A5F-AFE7012B868E} = {78DD0182-3642-461C-B28B-17C2611897F4}
+		{3B319A3E-FB71-4B8B-B403-4E06ECD1DB2C} = {5B247426-2F5D-4A0E-9A5F-AFE7012B868E}
+	EndGlobalSection
+EndGlobal
