@@ -1,0 +1,119 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  ApiGatewayHttpApi:
+    Type: AWS::Serverless::HttpApi
+
+  CountUpLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: AspireAWSExample.CounterLambdaFunction/src/AspireAWSExample.CounterLambdaFunction
+      Handler: AspireAWSExample.CounterLambdaFunction::AspireAWSExample.CounterLambdaFunction.Function::CountUpHandler
+      Runtime: dotnet8
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 10
+      Events:
+        ApiGatewayHttpApiGET:
+          Type: HttpApi
+          Properties:
+            Path: /countup/{x}
+            Method: GET
+            ApiId: !Ref ApiGatewayHttpApi
+
+  WeatherForecastLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: AspireAWSExample.WeatherForecastLambdaFunction/src/AspireAWSExample.WeatherForecastLambdaFunction
+      Handler: AspireAWSExample.WeatherForecastLambdaFunction::AspireAWSExample.WeatherForecastLambdaFunction.Function::FunctionHandler
+      Runtime: dotnet8
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 10
+      Events:
+        ApiGatewayHttpApiGET:
+          Type: HttpApi
+          Properties:
+            Path: /weatherforecast
+            Method: GET
+            ApiId: !Ref ApiGatewayHttpApi
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        DefaultCacheBehavior:
+          TargetOriginId: WebBucketOrigin
+          Compress: true
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          CachePolicyId: !Ref WebBucketCachePolicy
+          # OriginRequestPolicyId: !Ref WebBucketOriginRequestPolicy
+        PriceClass: PriceClass_200
+        DefaultRootObject: index.html
+        Enabled: true
+        Origins:
+          - DomainName: !GetAtt WebBucket.RegionalDomainName
+            Id: WebBucketOrigin
+            OriginAccessControlId: !GetAtt WebBucketOriginAccessControl.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+
+  WebBucket:
+    Type: AWS::S3::Bucket
+
+  WebBucketBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Principal:
+              Service: cloudfront.amazonaws.com
+            Action:
+              - s3:GetObject
+            Effect: Allow
+            Resource:
+              - !Sub ${WebBucket.Arn}/*
+            Condition:
+              StringEquals:
+                AWS:SourceArn:
+                  - !Sub arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}
+
+  # S3 バケット OAC
+  WebBucketOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        SigningBehavior: always
+        OriginAccessControlOriginType: s3
+        SigningProtocol: sigv4
+        Name: !Sub ${AWS::StackName}-OAC-${AWS::AccountId}
+
+  # キャッシュポリシー ※キャッシュなし 
+  WebBucketCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: WebBucketCachePolicy
+        DefaultTTL: 0
+        MinTTL: 0
+        MaxTTL: 0
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: false
+          EnableAcceptEncodingBrotli: false
+          CookiesConfig:
+            CookieBehavior: none
+          HeadersConfig:
+            HeaderBehavior: none
+          QueryStringsConfig:
+            QueryStringBehavior: none

@@ -1,10 +1,26 @@
 # aws_dotnet_aspire_blazor
 
+※作成中
+
+# TODO
+* apigateway の url を web の appsettings.json に書き込む方法
+* CDK
+* フォルダ構成整理　src test
+* Web に Web.Dev 追加？モック注入用。エントリーポイントとビュー関連をプロジェクト分ける？builderのextensions を別プロジェクトにする？
+* メトリクス
+* template.yaml を CloudFront と ApiGateway でわける？そんなこと可能なの？
+* デバッグ実行
+* AppHost の実行方法、ログの確認方法
+* Lambda の開発方法、テスト方法、デバッグ方法
+* Web の開発方法、テスト方法、デバッグ方法
+* Web のサービスモック
+
 ## 概要
 
 クイック スタート: 初めての .NET.NET Aspire ソリューションを構築する  
 https://learn.microsoft.com/ja-jp/dotnet/aspire/get-started/build-your-first-aspire-app?pivots=dotnet-cli  
 
+![alt text](docs/images/infrastructure-composer-template.yaml.png)
 
 ## 詳細
 
@@ -108,7 +124,54 @@ dotnet run --project AspireAWSExample.Web
 dotnet watch --project ./AspireAWSExample.Web
 ```
 
-# TODO
-* CDK
-* フォルダ構成整理　src test
-* Web に Web.Dev 追加？モック注入用。エントリーポイントとビュー関連をプロジェクト分ける？builderのextensions を別プロジェクトにする？
+## CDK
+
+※ SAM に変更したため CDK は削除
+
+```
+mkdir AspireAWSExample.CDK
+(cd AspireAWSExample.CDK && cdk init --language csharp)
+rm AspireAWSExample.CDK/src/AspireAwsExampleCdk.sln
+dotnet sln add AspireAWSExample.CDK/src/AspireAwsExampleCdk
+```
+※上記コマンドでソリューションファイルを削除しているが、ソリューションファイルが複数あると C# の開発環境がおかしくなってインテリセンスが効かなくなったりする。
+
+### cdk synth CDK スタックから AWS CloudFormation テンプレートを作成
+```
+(cd AspireAWSExample.CDK && cdk synth)
+```
+`AspireAWSExample.CDK/cdk.out` が作成される。  
+`AspireAWSExample.CDK/cdk.out/AspireAwsExampleCdkStack.template.json` にテンプレートがある。  
+テンプレートは AWS Infrastructure Composer で表示できる。
+
+### AWS への接続確認
+```
+aws sts get-caller-identity
+```
+
+```
+sam build --build-in-source
+```
+※`--build-in-source` を指定するとビルド時に CodeUri に指定したフォルダで直接ビルドする。指定しないと `/tmp` にコピーしてビルドするが、依存するプロジェクトまでコピーしてくれないのでエラーになる。  
+https://docs.aws.amazon.com/ja_jp/serverless-application-model/latest/developerguide/serverless-sam-cli-using-build.html
+※.NET のビルドで `--use-container` の指定はおすすめしない。.NET はビルドで `bin` や `obj` を生成するが、コンテナ内のパスで書き換わって VSCode の拡張機能がエラーを吐いたり、生成されたファイルやフォルダが root でないと操作できなくなったりする。
+
+
+```
+sam deploy \
+    --stack-name AspireAWSExampleSAMStack \
+    --region ap-northeast-1 \
+    --capabilities CAPABILITY_IAM \
+    --no-disable-rollback \
+    --resolve-s3
+```
+※ build を忘れやすいので注意
+
+```
+sam delete --stack-name AspireAWSExampleSAMStack
+```
+
+### デプロイ
+
+
+
