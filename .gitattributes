@@ -1,0 +1,60 @@
+# Set default behavior to automatically normalize line endings.
+* text eol=lf
+
+# Collapse these files in PRs by default
+*.xlf linguist-generated=true
+*.lcl linguist-generated=true
+
+*.jpg  	binary
+*.png 	binary
+*.gif 	binary
+
+# Force bash scripts to always use lf line endings so that if a repo is accessed
+# in Unix via a file share from Windows, the scripts will work.
+*.in text eol=lf
+*.sh text eol=lf
+
+# Likewise, force cmd and batch scripts to always use crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+*.cs text eol=lf diff=csharp
+*.vb text eol=lf
+*.resx text eol=lf
+*.c text eol=lf
+*.cpp text eol=lf
+*.cxx text eol=lf
+*.h text eol=lf
+*.hxx text eol=lf
+*.py text eol=lf
+*.rb text eol=lf
+*.java text eol=lf
+*.html text eol=lf
+*.htm text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.less text eol=lf
+*.js text eol=lf
+*.lisp text eol=lf
+*.clj text eol=lf
+*.sql text eol=lf
+*.php text eol=lf
+*.lua text eol=lf
+*.m text eol=lf
+*.asm text eol=lf
+*.erl text eol=lf
+*.fs text eol=lf
+*.fsx text eol=lf
+*.hs text eol=lf
+
+*.csproj text eol=lf
+*.vbproj text eol=lf
+*.fsproj text eol=lf
+*.dbproj text eol=lf
+*.sln text=auto eol=crlf
+
+# Set linguist language for .h files explicitly based on
+# https://github.com/github/linguist/issues/1626#issuecomment-401442069
+# this only affects the repo's language statistics
+*.h linguist-language=C
