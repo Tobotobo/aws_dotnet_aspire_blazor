@@ -18,4 +18,8 @@ builder.Services.AddScoped<IWeatherForecastService>(sp => new WeatherForecastSer
     new HttpClient { BaseAddress = apiBaseUri }
 ));
 
+// // 開発用 TODO: プロジェクトを分ける
+// builder.Services.AddScoped<ICounterService, CounterServiceMock>();
+// builder.Services.AddScoped<IWeatherForecastService, WeatherForecastServiceMock>();
+
 await builder.Build().RunAsync();
