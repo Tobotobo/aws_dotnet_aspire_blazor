@@ -15,9 +15,11 @@ Integrations with .NET Aspire for AWS
 https://github.com/aws/integrations-on-dotnet-aspire-for-aws  
 
 ## 課題
-* AppHost のプロジェクトで警告が出る 
+* AppHost のプロジェクトで ASPIRE004 の警告が出る 
   * XXXX is referenced by an Aspire Host project, but it is not an executable. (ASPIRE004)
   * Lambda をクラスライブラリで実装しているが、本来の .NET Aspire は実行ファイルを想定しているため上記の警告が表示される
+  * Allow extending the IProjectMetadata via another package  
+    https://github.com/dotnet/aspire/issues/3968  
 * .NET Aspire の ServiceDefaults を実装していない
 * .NET Aspire の 構造化、トレース、メトリックが機能していない
 * .NET Aspire のデバッグ実行時に、値の確認やブレークポイントが使用できない
