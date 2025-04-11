@@ -70,7 +70,7 @@ dotnet watch --project ./AspireAWSExample.Web
     ```
     ./scripts/01_test_aws_connect.sh
     ```
-1. AWS へのデプロイを実行
+1. AWS へのデプロイを実行　※CloudFront のところで 7 分ほどかかる
     ```
     ./scripts/10_deploy_stack_to_cloudformation.sh
     ```
@@ -85,7 +85,7 @@ dotnet watch --project ./AspireAWSExample.Web
 1. サイトが表示されることを確認
 
 ### スタックを削除
-以下を実行
+以下を実行　※CloudFront のところで 7 分ほどかかる
 ```
 ./scripts/90_delete_stack_from_cloudformation.sh
 ```
