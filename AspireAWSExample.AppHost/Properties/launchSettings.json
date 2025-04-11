@@ -12,7 +12,7 @@
         "DOTNET_DASHBOARD_OTLP_ENDPOINT_URL": "http://localhost:19000",
         "DOTNET_RESOURCE_SERVICE_ENDPOINT_URL": "http://localhost:20000",
         "ASPIRE_ALLOW_UNSECURED_TRANSPORT": "true",
-        "DOTNET_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS": "true"
+        "Dashboard__Frontend__AuthMode": "Unsecured"
       }
     }
   }
