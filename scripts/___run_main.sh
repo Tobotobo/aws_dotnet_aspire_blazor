@@ -170,7 +170,7 @@ if [[ -f "___utils.sh" ]]; then
 fi
 
 # main 処理実行
-main
+main "$@"
 
 # 実行完了
 success "${script_file_name} の実行が完了しました。"
